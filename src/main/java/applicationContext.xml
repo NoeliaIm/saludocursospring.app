@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.1.xsd
+">
+	<!-- creamos la dependencia -->
+	<bean id="selloEmpresa" class="com.saludocursospring.app.SelloEmpresaImpl"></bean>
+	
+    <!-- <bean id="mSaludo" class="com.saludocursospring.app.SaludoServiceImpl">
+    configuramos la dependencia del sello
+    <constructor-arg ref="selloEmpresa"></constructor-arg>
+    </bean> -->
+    
+    <bean id="mContrato" class="com.saludocursospring.app.ContratoServiceImpl">
+    <!-- configuramos la dependencia del sello -->
+    <constructor-arg ref="selloEmpresa"></constructor-arg>
+    </bean>
+    
+    <bean id="mSetter" class="com.saludocursospring.app.SaludoServiceImpl">
+    <property name="creaccionSelloEmpresa" ref="selloEmpresa"></property>
+    </bean>
+</beans>
